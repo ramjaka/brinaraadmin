@@ -26,7 +26,14 @@ class Product extends Model
         parent::boot();
 
         static::creating(function (Model $model) {
-            $model->setAttribute('code', ('P000'.$model->orderby('id', 'DESC')->first()->id ?? 0) + 1);
+            $latest = 0;
+            $checkProduct = $model->orderby('id', 'DESC')->first();
+
+            if ($checkProduct) {
+                $latest = $checkProduct->id;
+            }
+
+            $model->setAttribute('code', ('P000' . ($latest + 1)));
         });
     }
 

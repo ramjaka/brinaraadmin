@@ -3,7 +3,7 @@
         <a href="#">{{ config('app.name') }}</a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
-        <a href="#">LVL</a>
+        <a href="#">BRN</a>
     </div>
     <ul class="sidebar-menu">
         <li {{ is_nav_active('dashboard') }}>
